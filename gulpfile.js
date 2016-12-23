@@ -1,5 +1,3 @@
-
-
 var gulp = require('gulp'),
     stylus = require('gulp-stylus'),
     concat = require('gulp-concat'),
@@ -15,25 +13,25 @@ var reload = browserSync.reload;
 
 //编译stylus
 gulp.task('stylus', function(){
-  return gulp.src('./assets/stylus/**/*.styl')
+  return gulp.src('./public/stylus/**/*.styl')
   .pipe(stylus())
-  .pipe(gulp.dest('./assets/css'));
+  .pipe(gulp.dest('./public/css'));
 });
 
 
 //压缩css
 gulp.task('minifycss', ['stylus'], function(){
-  return gulp.src('./assets/css/**/*.css')
+  return gulp.src('./public/css/**/*.css')
   .pipe(minifycss())
-  .pipe(gulp.dest('./dist/assets/css'));
+  .pipe(gulp.dest('./dist/public/css'));
 });
 
 
 //压缩js
 gulp.task('uglify', function(){
-  return gulp.src('./assets/js/**/*.js')
+  return gulp.src('./public/js/**/*.js')
   .pipe(uglify())
-  .pipe(gulp.dest('./dist/assets/js'));
+  .pipe(gulp.dest('./dist/public/js'));
 });
 
 
@@ -46,9 +44,9 @@ gulp.task('htmlmin', function(){
 
 //压缩images
 gulp.task('imagemin', function(){
-  return gulp.src('./assets/img/**/*{png,jpg,ico,gif}')
+  return gulp.src('./public/img/**/*{png,jpg,ico,gif}')
   .pipe(imagemin())
-  .pipe(gulp.dest('./dist/assets/img'));
+  .pipe(gulp.dest('./dist/public/img'));
 });
 
 
@@ -70,7 +68,7 @@ gulp.task('nodemon', (a)=> {
 gulp.task('browser-sync',['nodemon'] , ()=> {
   browserSync.init({
     proxy: {
-      target: 'http://127.0.0.1:16082'
+      target: 'http://127.0.0.1:16086'
     },
     files: ['*'],
     open: false,
@@ -89,12 +87,12 @@ gulp.task('build', ['stylus', 'minifycss', 'uglify', 'imagemin', 'htmlmin']);
 
 //监听文件变更
 gulp.task('watch', function(){
-  gulp.watch('./assets/stylus/**/*.styl', ['stylus']);
+  gulp.watch('./public/stylus/**/*.styl', ['stylus']);
   gulp.watch([
     './views/**/*.html',
-    './assets/css/**/*.css',
-    './assets/js/**/*.js',
-    './assets/img/**/*.{png,jpg,ico,gif}}'
+    './public/css/**/*.css',
+    './public/js/**/*.js',
+    './public/img/**/*.{png,jpg,ico,gif}}'
   ]).on('change', reload);
 });
 

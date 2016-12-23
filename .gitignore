@@ -1,5 +1,5 @@
-
-node_modules/
-.project/
 .idea/
-*.exe/
+*.exe
+node_modules/
+git/
+routes/

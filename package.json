@@ -1,19 +1,20 @@
 {
-{
-  "name": "house",
+  "name": "projects",
   "version": "1.0.0",
-  "description": "* 下载\r   - `git clone https://github.com/htz4004/htz-cxtx.git`",
+  "description": "",
   "main": "app.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
+  "keywords": [],
   "author": "",
   "license": "ISC",
-  "keywords": [],
+  "dependencies": {
+    "express": "^4.14.0"
+  },
   "devDependencies": {
-    "browser-sync": "^2.18.2",
+    "browser-sync": "^2.18.1",
     "del": "^2.2.2",
-    "express": "^4.14.0",
     "gulp": "^3.9.1",
     "gulp-concat": "^2.6.1",
     "gulp-htmlmin": "^3.0.0",
